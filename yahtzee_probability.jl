@@ -35,6 +35,12 @@ function simulate_yahtzee(n)
     return successes/n
 end
 
+# probability of getting a yahtzee in a turn
 yahtzee_probability = simulate_yahtzee(10000000)
+
+# probability of getting exactly three yahtzees in six distinct turns
 pdf(Binomial(6, yahtzee_probability), 3)
-1 /pdf(Binomial(6, yahtzee_probability), 3)
+
+# average number of six turns you'd need to play out to get exactly three 
+# yahtzees in those six turns
+1 / pdf(Binomial(6, yahtzee_probability), 3)
